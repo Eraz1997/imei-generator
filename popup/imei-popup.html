@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="imei-popup.css" />
+  </head>
+
+  <body>
+    <div class="popup-content">
+      <img src="img/icon.svg" width="48px" height="48px" class="icon button" />
+      <div class="imei-container">
+        <p class="placeholder">Your freshly generated IMEI!</p>
+        <p class="imei-value" id="imei-value">TO_BE_INITIALIZED</p>
+      </div>
+      <img
+        src="img/refresh.svg"
+        width="32px"
+        height="32px"
+        class="refresh button"
+      />
+      <img src="img/copy.svg" width="32px" height="32px" class="copy button" />
+    </div>
+    <div id="error-content" class="hidden">
+      <p>Something went wrong :(</p>
+    </div>
+    <script src="../scripts/imeiGenerator.js"></script>
+    <script src="imei-popup.js"></script>
+  </body>
+</html>

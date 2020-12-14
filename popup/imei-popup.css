@@ -1,0 +1,55 @@
+html,
+body {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.hidden {
+  display: none;
+}
+
+.popup-content {
+  padding: 0 8px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.imei-container {
+  font-family: "Ubuntu", sans-serif;
+  flex: 1;
+  padding: 0 16px;
+  text-align: center;
+}
+
+.placeholder {
+  font-weight: 300;
+}
+
+.imei-value {
+  font-weight: 100;
+  font-style: italic;
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+}
+
+.button {
+  padding: 4px;
+  cursor: pointer;
+  border-radius: 4px;
+  -webkit-transition: background-color 75ms linear;
+  -ms-transition: background-color 75ms linear;
+  transition: background-color 75ms linear;
+}
+
+.button:hover {
+  background-color: whitesmoke;
+}
+
+.button:active {
+  background-color: rgb(235, 235, 235);
+}

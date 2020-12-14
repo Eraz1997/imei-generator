@@ -1,0 +1,31 @@
+{
+  "manifest_version": 2,
+  "name": "IMEI Generator",
+  "version": "1.0",
+
+  "description": "It generates IMEI codes with right-click or by clicking on its button.",
+  "homepage_url": "https://github.com/Eraz1997/imei-generator",
+
+  "icons": {
+    "48": "icons/icon.svg",
+    "96": "icons/icon.svg"
+  },
+
+  "permissions": ["activeTab", "contextMenus", "menus"],
+
+  "browser_action": {
+    "default_icon": "icons/icon.svg",
+    "default_title": "IMEI Generator",
+    "default_popup": "popup/imei-popup.html"
+  },
+
+  "web_accessible_resources": [
+    "beasts/frog.jpg",
+    "beasts/turtle.jpg",
+    "beasts/snake.jpg"
+  ],
+
+  "background": {
+    "scripts": ["./scripts/imeiGenerator.js", "./scripts/background.js"]
+  }
+}
