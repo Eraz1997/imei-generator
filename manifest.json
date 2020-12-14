@@ -1,9 +1,9 @@
 {
   "manifest_version": 2,
   "name": "IMEI Generator",
-  "version": "1.0",
+  "version": "0.0.0.1",
 
-  "description": "It generates IMEI codes with right-click or by clicking on its button.",
+  "description": "It generates IMEI codes with right-click context menu or by clicking on its button.",
   "homepage_url": "https://github.com/Eraz1997/imei-generator",
 
   "icons": {
