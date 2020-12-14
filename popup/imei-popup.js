@@ -1,9 +1,23 @@
 function listenForClicks() {
   document.addEventListener("click", (e) => {
     function openGitHubLink() {
-      var creating = browser.tabs.create({
-        url: "https://github.com/Eraz1997/imei-generator",
-      });
+      try {
+        var creating = browser.tabs.create({
+          url: "https://github.com/Eraz1997/imei-generator",
+        });
+      } catch (e) {
+        try {
+          if (!e.toString().includes("browser is not defined")) {
+            reportError(e);
+            return;
+          }
+          var creating = chrome.tabs.create({
+            url: "https://github.com/Eraz1997/imei-generator",
+          });
+        } catch (e) {
+          throw e;
+        }
+      }
     }
 
     function refresh() {
@@ -34,22 +48,29 @@ function listenForClicks() {
       console.error(`IMEI error: ${error}`);
     }
 
+    function callFunction(f) {
+      try {
+        browser.tabs.query({ active: true, currentWindow: true }).then(f);
+      } catch (e) {
+        if (!e.toString().includes("browser is not defined")) {
+          reportError(e);
+          return;
+        }
+        try {
+          chrome.tabs.query({ active: true, currentWindow: true }, f);
+        } catch (e) {
+          reportError(e);
+        }
+      }
+    }
+
     if (e.target.classList.contains("button")) {
       if (e.target.classList.contains("icon")) {
-        browser.tabs
-          .query({ active: true, currentWindow: true })
-          .then(openGitHubLink)
-          .catch(reportError);
+        callFunction(openGitHubLink);
       } else if (e.target.classList.contains("refresh")) {
-        browser.tabs
-          .query({ active: true, currentWindow: true })
-          .then(refresh)
-          .catch(reportError);
+        callFunction(refresh);
       } else if (e.target.classList.contains("copy")) {
-        browser.tabs
-          .query({ active: true, currentWindow: true })
-          .then(copyToClipboard)
-          .catch(reportError);
+        callFunction(copyToClipboard);
       }
     }
   });

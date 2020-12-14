@@ -1,4 +1,5 @@
 try {
+  browser.permissions.request({ permissions: ["menus"] });
   browser.menus.create({
     id: "insert-imei",
     title: "Insert random IMEI",
@@ -16,15 +17,19 @@ try {
     },
   });
 } catch (e) {
-  try {
-    chrome.contextMenus.create({
-      id: "insert-imei",
-      title: "Insert random IMEI",
-      contexts: ["editable"],
-      onclick(info, tab) {
-        chrome.tabs.executeScript({
-          frameId: info.frameId,
-          code: `
+  console.log(e.toString());
+  if (!e.toString().includes("browser is not defined")) {
+    console.error(e);
+  } else {
+    try {
+      chrome.contextMenus.create({
+        id: "insert-imei",
+        title: "Insert random IMEI",
+        contexts: ["editable"],
+        onclick(info, tab) {
+          chrome.tabs.executeScript({
+            frameId: info.frameId,
+            code: `
           ${generateIMEI.toString()}
           target = document.getSelection().baseNode;
           if (target.tagName !== "INPUT" && target.children) {
@@ -32,10 +37,11 @@ try {
             target = arr.find(c => c.tagName === "INPUT");
           }
           target.value = generateIMEI();`,
-        });
-      },
-    });
-  } catch (e) {
-    console.error(e);
+          });
+        },
+      });
+    } catch (e) {
+      console.error(e);
+    }
   }
 }

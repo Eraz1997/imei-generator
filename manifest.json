@@ -7,14 +7,29 @@
   "homepage_url": "https://github.com/Eraz1997/imei-generator",
 
   "icons": {
-    "48": "icons/icon.svg",
-    "96": "icons/icon.svg"
+    "12": "icons/icon-12.png",
+    "16": "icons/icon-16.png",
+    "32": "icons/icon-32.png",
+    "48": "icons/icon-48.png",
+    "64": "icons/icon-64.png",
+    "128": "icons/icon-128.png",
+    "256": "icons/icon-256.png",
+    "512": "icons/icon-512.png"
   },
 
-  "permissions": ["activeTab", "contextMenus", "menus"],
+  "permissions": ["activeTab", "contextMenus"],
 
   "browser_action": {
-    "default_icon": "icons/icon.svg",
+    "default_icon": {
+      "12": "icons/icon-12.png",
+      "16": "icons/icon-16.png",
+      "32": "icons/icon-32.png",
+      "48": "icons/icon-48.png",
+      "64": "icons/icon-64.png",
+      "128": "icons/icon-128.png",
+      "256": "icons/icon-256.png",
+      "512": "icons/icon-512.png"
+    },
     "default_title": "IMEI Generator",
     "default_popup": "popup/imei-popup.html"
   },
