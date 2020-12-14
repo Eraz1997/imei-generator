@@ -5,3 +5,5 @@
 ```
 git archive -o imei-generator.zip HEAD
 ```
+
+Licensed by MPL2
