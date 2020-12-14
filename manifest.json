@@ -17,7 +17,7 @@
     "512": "icons/icon-512.png"
   },
 
-  "permissions": ["activeTab", "contextMenus"],
+  "permissions": ["activeTab", "contextMenus", "menus"],
 
   "browser_action": {
     "default_icon": {

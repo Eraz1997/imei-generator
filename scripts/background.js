@@ -1,5 +1,4 @@
 try {
-  browser.permissions.request({ permissions: ["menus"] });
   browser.menus.create({
     id: "insert-imei",
     title: "Insert random IMEI",
@@ -17,7 +16,6 @@ try {
     },
   });
 } catch (e) {
-  console.log(e.toString());
   if (!e.toString().includes("browser is not defined")) {
     console.error(e);
   } else {
